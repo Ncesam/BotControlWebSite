@@ -1,0 +1,16 @@
+pydantic-settings>=2.8.1
+starlette>=0.46.1
+SQLAlchemy>=2.0.39
+fastapi>=0.115.11
+aiohttp>=3.11.14
+pydantic>=2.10.6
+bcrypt>=4.3.0
+PyJWT>=2.10.1
+alembic>=1.15.1
+uvicorn>=0.34.0
+asyncpg
+pytest
+pytest-asyncio
+pre-commit
+flake8
+black
