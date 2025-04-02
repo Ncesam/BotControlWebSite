@@ -16093,3 +16093,346 @@ task: <Task pending name='Task-2' coro=<ControlPanel.loop() running at C:\Users\
 2025-04-02 13:45:00  src.Controller.main : ERROR : Error in ControlPanel loop: Multiple exceptions: [Errno 10061] Connect call failed ('::1', 5432, 0, 0), [Errno 10061] Connect call failed ('127.0.0.1', 5432)
 2025-04-02 13:45:04  src.Controller.main : ERROR : Error in ControlPanel loop: Multiple exceptions: [Errno 10061] Connect call failed ('::1', 5432, 0, 0), [Errno 10061] Connect call failed ('127.0.0.1', 5432)
 2025-04-02 13:45:09  src.Controller.main : ERROR : Error in ControlPanel loop: Multiple exceptions: [Errno 10061] Connect call failed ('::1', 5432, 0, 0), [Errno 10061] Connect call failed ('127.0.0.1', 5432)
+2025-04-02 14:15:26  src.Controller.main : DEBUG : Started ControlPanel
+2025-04-02 14:15:26  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:26  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:26  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:27  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:27  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:27  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:27  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:27  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:27  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:27  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:28  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:28  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:28  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:28  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:28  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:28  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:28  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:28  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:29  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:29  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:29  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:29  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:29  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:29  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:29  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:29  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:29  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:30  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:30  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:30  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:30  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:30  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:30  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:31  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:31  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:31  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:31  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:31  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:31  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:31  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:32  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:32  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:32  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:32  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:32  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:32  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:32  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:33  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:33  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:33  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:33  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:33  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:33  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:33  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:33  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:34  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:34  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:34  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:34  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:34  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:34  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:34  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:34  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:35  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:35  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:35  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:35  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:35  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:35  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:35  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:36  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:36  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:36  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:36  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:36  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:36  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:36  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:37  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:37  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:37  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:37  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:37  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:37  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:37  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:38  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:38  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:38  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:38  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:38  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:38  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:38  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:39  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:39  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:39  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:39  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:39  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:39  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:39  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:39  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:40  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:40  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:40  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:40  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:40  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:40  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:40  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:41  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:41  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:41  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:41  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:41  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:41  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:41  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:41  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:41  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:42  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:42  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:42  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:42  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:42  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:42  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:42  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:42  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:42  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:43  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:43  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:43  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:43  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:43  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:43  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:43  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:44  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:44  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:44  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:44  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:44  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:44  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:44  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:44  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:45  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:45  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:45  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:45  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:45  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:45  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:45  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:46  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:46  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:46  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:46  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:46  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:46  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:46  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:47  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:47  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:47  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:47  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:47  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:47  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:47  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:47  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:48  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:48  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:48  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:48  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:48  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:48  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:48  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:48  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:48  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:49  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:49  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:49  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:49  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:49  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:49  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:49  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:49  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:49  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:50  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:50  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:50  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:50  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:50  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:50  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:50  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:51  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:51  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:51  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:51  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:51  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:51  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:51  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:51  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:51  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:52  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:52  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:52  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:52  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:52  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:52  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:52  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:52  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:53  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:53  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:53  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:53  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:56  src.Controller.main : DEBUG : Started ControlPanel
+2025-04-02 14:15:56  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:56  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:56  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:57  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:57  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:57  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:57  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:57  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:57  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:57  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:57  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:57  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:58  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:58  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:58  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:58  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:58  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:58  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:58  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:58  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:58  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:58  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:59  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:59  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:59  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:59  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:15:59  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:16:00  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:16:00  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:16:00  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:16:00  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:16:00  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:16:00  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:16:00  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:16:00  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:16:00  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:16:01  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:16:01  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:16:01  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:16:01  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:16:01  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:16:01  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:16:01  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:16:01  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:16:01  src.Controller.main : ERROR : Error in ControlPanel loop: connection was closed in the middle of operation
+2025-04-02 14:16:05  src.Controller.main : DEBUG : Started ControlPanel
+2025-04-02 14:17:17  src.Controller.main : DEBUG : Started ControlPanel
+2025-04-02 14:17:22  src.API.Auth.logics : DEBUG : User test passed verification
+2025-04-02 14:17:23  src.API.Auth.logics : DEBUG : User successfully logged in
+2025-04-02 14:28:32  src.API.Auth.logics : DEBUG : User test passed verification
+2025-04-02 14:28:32  src.API.Auth.logics : DEBUG : User successfully logged in
+2025-04-02 14:28:38  src.API.Auth.logics : DEBUG : User test passed verification
+2025-04-02 14:28:38  src.API.Auth.logics : DEBUG : User successfully logged in
+2025-04-02 14:29:13  src.API.Auth.logics : DEBUG : User test passed verification
+2025-04-02 14:29:14  src.API.Auth.logics : DEBUG : User successfully logged in
+2025-04-02 14:30:30  src.API.Auth.logics : DEBUG : User successfully logged out
+2025-04-02 14:32:09  src.API.Auth.logics : DEBUG : User test passed verification
+2025-04-02 14:32:10  src.API.Auth.logics : DEBUG : User successfully logged in
+2025-04-02 14:35:23  src.API.Auth.logics : DEBUG : User test passed verification
+2025-04-02 14:35:23  src.API.Auth.logics : DEBUG : User successfully logged in
+2025-04-02 14:36:16  src.API.Auth.logics : DEBUG : User successfully logged out
+2025-04-02 14:36:19  src.API.Auth.logics : DEBUG : User test passed verification
+2025-04-02 14:36:19  src.API.Auth.logics : DEBUG : User successfully logged in
+2025-04-02 14:36:27  src.API.Auth.logics : DEBUG : User test passed verification
+2025-04-02 14:36:27  src.API.Auth.logics : DEBUG : User successfully logged in
+2025-04-02 14:42:42  src.API.Auth.logics : DEBUG : User successfully logged out
+2025-04-02 14:42:48  src.API.Auth.logics : DEBUG : User test passed verification
+2025-04-02 14:42:48  src.API.Auth.logics : DEBUG : User successfully logged in
+2025-04-02 14:59:33  src.API.Auth.logics : DEBUG : User successfully logged out
+2025-04-02 14:59:36  src.API.Auth.logics : DEBUG : User test passed verification
+2025-04-02 14:59:36  src.API.Auth.logics : DEBUG : User successfully logged in
+2025-04-02 15:00:28  src.API.Auth.logics : DEBUG : User successfully logged out
+2025-04-02 15:00:57  src.API.Auth.logics : DEBUG : User test passed verification
+2025-04-02 15:00:58  src.API.Auth.logics : DEBUG : User successfully logged in
+2025-04-02 15:01:02  src.API.Auth.logics : DEBUG : User successfully logged out
+2025-04-02 15:01:06  src.API.Auth.logics : DEBUG : User test passed verification
+2025-04-02 15:01:06  src.API.Auth.logics : DEBUG : User successfully logged in
+2025-04-02 15:03:21  src.Controller.main : ERROR : Error in ControlPanel loop: {'error': {'error_code': 5, 'error_msg': 'User authorization failed: invalid access_token (4).', 'request_params': [{'key': 'v', 'value': '5.199'}, {'key': 'offset', 'value': '0'}, {'key': 'method', 'value': 'messages.getConversations'}, {'key': 'oauth', 'value': '1'}]}}
+2025-04-02 15:03:21  root : INFO : Bot 26 stopped.
+2025-04-02 15:08:25  src.API.Auth.logics : DEBUG : User successfully logged out
+2025-04-02 15:08:42  src.API.Auth.logics : DEBUG : User test passed verification
+2025-04-02 15:08:42  src.API.Auth.logics : DEBUG : User successfully logged in
+2025-04-02 15:09:40  src.API.Auth.logics : DEBUG : User successfully logged out
+2025-04-02 15:09:41  src.API.Auth.logics : DEBUG : User test passed verification
+2025-04-02 15:09:41  src.API.Auth.logics : DEBUG : User successfully logged in
+2025-04-02 15:20:41  src.Bot.BotController : DEBUG : Øêîäà êàòàåòñÿ, òîëüêî ñòîïíóëè
+2025-04-02 15:20:42  src.VK_API.API : DEBUG : {'response': {'admin_id': 421394745, 'id': 98, 'type': 'chat', 'members_count': 309, 'photo_100': 'https://sun9-6.userapi.com/s/v1/ig2/iOUxx-lxwFdp29MBStZxVlo5w0ZeBeNQQa4-tykTfKPxhq291Q5lQ7Q7FAY_02c6qrUgXQiasxyhxs1aN8on6MXE.jpg?quality=96&crop=0,0,660,660&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640&ava=1&u=bUjjYZ1pVnI2rK7por-7dbjbf_KERHrK9d7B2qfMJQI&cs=100x100', 'photo_200': 'https://sun9-6.userapi.com/s/v1/ig2/iOUxx-lxwFdp29MBStZxVlo5w0ZeBeNQQa4-tykTfKPxhq291Q5lQ7Q7FAY_02c6qrUgXQiasxyhxs1aN8on6MXE.jpg?quality=96&crop=0,0,660,660&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640&ava=1&u=bUjjYZ1pVnI2rK7por-7dbjbf_KERHrK9d7B2qfMJQI&cs=200x200', 'photo_50': 'https://sun9-6.userapi.com/s/v1/ig2/iOUxx-lxwFdp29MBStZxVlo5w0ZeBeNQQa4-tykTfKPxhq291Q5lQ7Q7FAY_02c6qrUgXQiasxyhxs1aN8on6MXE.jpg?quality=96&crop=0,0,660,660&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640&ava=1&u=bUjjYZ1pVnI2rK7por-7dbjbf_KERHrK9d7B2qfMJQI&cs=50x50', 'title': 'ÄÏÑ íà äîğîãàõ', 'users': [421394745, 589851815, 364125266, 8656850, 687858502, 522771676, 653162048, 141465275, 792250478, 676269916, 515823881, 652014393, 503532666, 278096795, 541103015, 580453475, 333497859, 139837630, 155687455, 496473021, 500562534, 230051420, 547679405, 238658624, 276568279, 650496021, 551568729, 296070559, 33412771, 759060220, 301259680, 122869249, 647844976, 479239631, 483055162, 523983436, 481263084, 306877200, 469517098, 246248022, 392414780, 277072807, 755011279, 223487769, 693323046, 109198390, 489273065, 568606815, 556154929, 634932110, 428287659, 354673976, 833266048, 200081629, 588495357, 536934514, 625189857, 472557365, 297184765, 38283388, 45060665, 319110200, 221878072, 431242997, 573022684, 499992305, 260832790, 573644015, 70224634, 83628117, 150462693, 325013626, 547212903, 366844161, 137441227, 187499640, 472690842, 232819740, 401569449, 500919474, 529639471, 619588823, 135152022, 447049709, 140929443, 154312729, 38251524, 181748827, 507846365, 484780869, 394753412, 466496141, 11995366, 162238565, 91709145, 686488572, 49863171, 726377327, 243114886, 158240085, 33691528, 677550274, 541575327, 475333637, 184331290, 181518039, 191076889, 131376298, 153191865, 199707475, 59384275, 24388922, 677635841, 133955877, 609483098, 480097348, 469078029, 696523541, 530658243, 422929726, 357074386, 321095407, 56356960, 451263221, 38735647, 543805902, 590779621, 273108325, 327502957, 482306259, 255671551, 648173906, 409080668, 573704491, 531799530, 570950766, 343027115, 340429043, 769228672, 742993103, 481369147, 71800107, 608864897, 422955390, 295254869, 201729601, 464164191, 527916074, 303440986, 590600561, 544664916, 306205070, 656832501, 147263932, 578124868, 343773286, 568161164, 558193689, 497650042, 293978071, 91510086, 517432575, 683578602, 510867602, 585649528, 621147331, 658070423, 768289807, 350433935, 362786737, 826788707, 740948536, 247908919, 438037593, 622365868, 790562212, 4368979, 126688119, 840479681, 565165282, 497277069, 635136176, 329523551, 449988970, 736373507, 535589888, 545982623, 520247733, 383118260, 539364377, 730320377, 653138763, 775890172, 618406286, 683077887, 384873054, 410324044, 65815301, 635979642, 525208017, 216507120, 618285356, 716965057, 760300829, 597739045, 220705111, 631512886, 658138873, 435954601, 334255259, 536723181, 243576332, 574553123, 522122833, 336984315, 496603841, 308691748, 223155174, 26326231, 565456185, 751157554, 254197088, 534552677, 245755900, 560403221, 580039293, 144584661, 752881161, 204990902, 782269309, 849666376, 837024278, 498388608, 597087480, 649521093, 509053985, 748006878, 524508544, 338154853, 237404923, 658454228, 431066921, 568549063, 521926531, 696584656, 640029190, 608641712, 855513050, 754766151, 441029832, 514831799, 711909292, 458977894, 525759091, 151917409, 636599047, 553827558, 135848948, 604893391, 479427997, 606401947, 718961032, 328971228, 355125956, 75190868, 501792070, 393909141, 386414495, 581114228, 689888442, 463417482, 467172872, 711171195, 883783369, 55676696, 431756698, 741752511, 806877483, 426450102, 42506187, 668913471, 841629108, 584391815, 473595387, 219398956, 599619854, 474176470, 8363265, 180203144, 393777530, 96869907, 239144142, 756173165, 488640095, 68261942, 572307912, 400903669, 518804109, 670089992, 81969792, 354242548, 151834636, 242560036, 20046110, 371956584, 484322912], 'is_default_photo': False}}
+2025-04-02 15:20:42  src.Bot.BotController : DEBUG : ÄÏÑ íà äîğîãàõ
+2025-04-02 15:20:42  src.Bot.BotController : DEBUG : ß íå ïîíÿë âàø âîïğîñ.
+2025-04-02 15:20:43  src.VK_API.API : DEBUG : {'response': {'admin_id': 510867602, 'id': 102, 'type': 'chat', 'members_count': 2, 'title': 'Äàíèëà', 'users': [510867602, 431157409]}}
+2025-04-02 15:20:43  src.Bot.BotController : DEBUG : Äàíèëà
+2025-04-02 15:20:43  src.Bot.BotController : INFO : Bot 32 started.
+2025-04-02 15:20:43  root : INFO : Bot 32 started.
+2025-04-02 15:20:45  src.Bot.BotController : DEBUG : 160057
+2025-04-02 15:20:51  src.Bot.BotController : DEBUG : 160056
+2025-04-02 15:20:56  src.Bot.BotController : DEBUG : 160055
+2025-04-02 15:21:00  src.Bot.BotController : DEBUG : 160054
+2025-04-02 15:21:05  src.Bot.BotController : DEBUG : 160053
+2025-04-02 15:21:09  src.Bot.BotController : DEBUG : 160052
+2025-04-02 15:21:14  src.Bot.BotController : DEBUG : 160051
+2025-04-02 15:21:18  src.Bot.BotController : DEBUG : 160050
+2025-04-02 15:21:23  src.Bot.BotController : DEBUG : 160049
+2025-04-02 15:21:27  src.Bot.BotController : DEBUG : 160048
+2025-04-02 15:22:05  src.Bot.BotController : INFO : Bot 32 loop has been cancelled.
+2025-04-02 15:22:05  src.Bot.BotController : INFO : Cleaning up bot 32.
+2025-04-02 15:22:07  src.Controller.main : DEBUG : Started ControlPanel
+2025-04-02 15:22:10  src.Controller.main : DEBUG : Started ControlPanel
+2025-04-02 15:22:26  src.Bot.BotController : DEBUG : ß íå ïîíÿë âàø âîïğîñ.
+2025-04-02 15:22:27  src.VK_API.API : DEBUG : {'response': {'admin_id': 510867602, 'id': 102, 'type': 'chat', 'members_count': 2, 'title': 'Äàíèëà', 'users': [510867602, 431157409]}}
+2025-04-02 15:22:27  src.Bot.BotController : DEBUG : Äàíèëà
+2025-04-02 15:22:27  src.Bot.BotController : INFO : Bot 32 started.
+2025-04-02 15:22:27  root : INFO : Bot 32 started.
+2025-04-02 15:22:28  src.Bot.BotController : DEBUG : 160092
+2025-04-02 15:22:32  src.Bot.BotController : DEBUG : 160091
+2025-04-02 15:22:36  src.Bot.BotController : DEBUG : 160090
+2025-04-02 15:22:39  src.Bot.BotController : DEBUG : 160089
+2025-04-02 15:22:43  src.Bot.BotController : DEBUG : 160088
+2025-04-02 15:22:47  src.Bot.BotController : DEBUG : 160087
+2025-04-02 15:22:50  src.Bot.BotController : DEBUG : 160086
+2025-04-02 15:22:54  src.Bot.BotController : DEBUG : 160085
+2025-04-02 15:22:58  src.Bot.BotController : DEBUG : 160084
+2025-04-02 15:23:02  src.Bot.BotController : DEBUG : 160083
+2025-04-02 15:23:09  src.Bot.BotController : DEBUG : 160093
+2025-04-02 15:24:31  src.Bot.BotController : INFO : Bot 32 loop has been cancelled.
+2025-04-02 15:24:31  src.Bot.BotController : INFO : Cleaning up bot 32.
+2025-04-02 15:24:33  src.Controller.main : DEBUG : Started ControlPanel
+2025-04-02 15:24:44  src.Bot.BotController : DEBUG : Ïğèâåò
+2025-04-02 15:24:45  src.VK_API.API : DEBUG : {'response': {'admin_id': 510867602, 'id': 102, 'type': 'chat', 'members_count': 2, 'title': 'Äàíèëà', 'users': [510867602, 431157409]}}
+2025-04-02 15:24:45  src.Bot.BotController : DEBUG : Äàíèëà
+2025-04-02 15:24:45  src.Bot.BotController : INFO : Bot 32 started.
+2025-04-02 15:24:45  root : INFO : Bot 32 started.
+2025-04-02 15:26:45  src.Bot.BotController : INFO : Bot 32 loop has been cancelled.
+2025-04-02 15:26:45  src.Bot.BotController : INFO : Cleaning up bot 32.
+2025-04-02 15:26:46  root : INFO : Bot 32 stopped.

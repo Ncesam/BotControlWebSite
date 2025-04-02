@@ -2,18 +2,21 @@ import {FC, useContext, useEffect, useState} from "react";
 import {BotsProps} from "./Bots.props";
 import {Context} from "@/index";
 import BotsCardList from "@/modules/BotsCardList/BotsCardList";
-import {Color, HexColor} from "@/types/Color";
+import {HexColor} from "@/types/Color";
 import {getBots} from "@/http/BotsAPI";
 import Loading from "@/ui/Loading/Loading";
 import {LoadingType} from "@/types/Loading";
-import Poput from "@/modules/Poput/Poput";
-import {PoputType} from "@/modules/Poput/Poput.props";
+import Button, {ButtonType} from "@/ui/Button/Button";
+import {ADD_BOT_ROUTE} from "@/utils/consts";
+import {useNavigate} from "react-router-dom";
 
 const Bots: FC<BotsProps> = ({}) => {
     const context = useContext(Context);
-    const [isLoading, setIsLoading] = useState<boolean>(false)
+    const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+
     useEffect(() => {
-        let isMounted = true; // Флаг для предотвращения обновления размонтированного компонента
+        let isMounted = true;
 
         const fetchBots = async () => {
             setIsLoading(true);
@@ -32,7 +35,6 @@ const Bots: FC<BotsProps> = ({}) => {
         };
 
         fetchBots();
-
         const interval = setInterval(fetchBots, 1000 * 60);
 
         return () => {
@@ -41,24 +43,22 @@ const Bots: FC<BotsProps> = ({}) => {
         };
     }, [context?.bots]);
 
-    return (
-        <div className={"flex flex-1 items-start justify-start"}>
-            {isLoading
-                ? <div className={"fixed center"}>
-                    <Loading type={LoadingType.Medium} color={HexColor.blue}/>
-                </div>
-                :
+    return isLoading ? (
+        <div className={"items-center justify-center flex"}>
+            <Loading type={LoadingType.Medium} color={HexColor.blue} />
+        </div>
+    ) : (
+        <div className={"w-full"}>
+            <div className={"flex flex-1 items-start justify-start"}>
                 <div className="flex w-full flex-col gap-2 items-center">
-                    <BotsCardList bots={context?.bots.bots}/>
+                    <BotsCardList bots={context?.bots.bots} />
                     <div className={"fixed bottom-5"}>
-                        <Poput type={PoputType.AddBot}/>
+                        <Button type={ButtonType.Submit} onClick={() => navigate(ADD_BOT_ROUTE)}>Добавить Бота</Button>
                     </div>
                 </div>
-            }
+            </div>
         </div>
     );
-
-}
+};
 
 export default Bots;
-

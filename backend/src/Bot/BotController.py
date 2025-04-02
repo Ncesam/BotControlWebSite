@@ -6,6 +6,7 @@ from src.API.Bots.service import BotService
 from src.VK_API.API import API
 
 answers_storage = {
+    "Привет {nickname}": "Привет, {nickname} как дела?"
 }
 answers_baf = {}
 
@@ -65,7 +66,6 @@ class BotController:
                             self.group_id, message.messageId, response
                         )
                         processed_messages.add(messageId["response"])
-                    self.logger.debug(message.messageId)
                     processed_messages.add(message.messageId)
                     await asyncio.sleep(3)
                 await asyncio.sleep(3)
@@ -93,7 +93,7 @@ class BotController:
             if match:
                 response = response_template.format(**match)
                 return response
-        return "Я не понял ваш вопрос."
+        return None
 
     def match_pattern(self, pattern: str, message: str):
         """Проверяет, соответствует ли сообщение шаблону, и извлекает переменные"""

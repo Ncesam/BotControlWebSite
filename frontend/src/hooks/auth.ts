@@ -33,16 +33,21 @@ const useAutoLogin = () => {
 
     useEffect(() => {
         const checkAuth = async () => {
-            const {status, data} = await $api.get("/api/auth/me", {withCredentials: true});
+            try {
+                const {status, data} = await $api.get("/api/auth/me", {withCredentials: true});
 
-            if (status === 403) {
-                window.location.href = "/login";
+                if (status === 403) {
+                    window.location.href = "/login";
+                    return;
+                }
+
+                context?.user.setUser({email: data.result.email});
+                context?.user.setIsAuth(true);
                 return;
+            } catch (e) {
+                console.log("error: ", e);
             }
 
-            context?.user.setUser({email: data.result.email});
-            context?.user.setIsAuth(true);
-            return;
         };
 
         checkAuth();
