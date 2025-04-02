@@ -43,7 +43,7 @@ const Login: FC<LoginProps> = () => {
         <div className="flex flex-1 justify-center items-center w-full h-3/4">
             <div>
                 <div className={"flex justify-center mb-4"}>
-                    <Label color={TextColor.black}>Login</Label>
+                    <Label color={TextColor.black}>Войти</Label>
                 </div>
                 <div className={"flex flex-col items-center gap-2"}>
                     <Input placeholder={"Email"} type={"email"} onChange={changeEmail}/>
@@ -61,7 +61,7 @@ const Login: FC<LoginProps> = () => {
                 {!loading ? (
                     <div className={"flex justify-center mt-4"}>
                         <Button type={ButtonType.Submit} onClick={click}>
-                            Submit
+                            Войти
                         </Button>
                     </div>
                 ) : (

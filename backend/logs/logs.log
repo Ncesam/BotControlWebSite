@@ -16085,3 +16085,11 @@ task: <Task pending name='Task-2' coro=<ControlPanel.loop() running at C:\Users\
 2025-04-01 11:29:55  src.API.Auth.logics : DEBUG : User successfully logged out
 2025-04-01 11:30:10  src.API.Auth.logics : DEBUG : User test passed verification
 2025-04-01 11:30:10  src.API.Auth.logics : DEBUG : User successfully logged in
+2025-04-02 13:44:29  src.Controller.main : DEBUG : Started ControlPanel
+2025-04-02 13:44:43  src.Controller.main : DEBUG : Started ControlPanel
+2025-04-02 13:44:47  src.Controller.main : ERROR : Error in ControlPanel loop: Multiple exceptions: [Errno 10061] Connect call failed ('::1', 5432, 0, 0), [Errno 10061] Connect call failed ('127.0.0.1', 5432)
+2025-04-02 13:44:52  src.Controller.main : ERROR : Error in ControlPanel loop: Multiple exceptions: [Errno 10061] Connect call failed ('::1', 5432, 0, 0), [Errno 10061] Connect call failed ('127.0.0.1', 5432)
+2025-04-02 13:44:56  src.Controller.main : ERROR : Error in ControlPanel loop: Multiple exceptions: [Errno 10061] Connect call failed ('::1', 5432, 0, 0), [Errno 10061] Connect call failed ('127.0.0.1', 5432)
+2025-04-02 13:45:00  src.Controller.main : ERROR : Error in ControlPanel loop: Multiple exceptions: [Errno 10061] Connect call failed ('::1', 5432, 0, 0), [Errno 10061] Connect call failed ('127.0.0.1', 5432)
+2025-04-02 13:45:04  src.Controller.main : ERROR : Error in ControlPanel loop: Multiple exceptions: [Errno 10061] Connect call failed ('::1', 5432, 0, 0), [Errno 10061] Connect call failed ('127.0.0.1', 5432)
+2025-04-02 13:45:09  src.Controller.main : ERROR : Error in ControlPanel loop: Multiple exceptions: [Errno 10061] Connect call failed ('::1', 5432, 0, 0), [Errno 10061] Connect call failed ('127.0.0.1', 5432)

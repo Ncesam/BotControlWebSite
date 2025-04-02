@@ -43,7 +43,7 @@ const Registration: FC <RegistrationProps> = ({}) => {
                 <div className={"flex justify-center mb-4"}>
                     <Label color={TextColor.black}>Регистрация</Label>
                 </div>
-                <div className={"flex flex-col gap-2"}>
+                <div className={"flex flex-col items-center gap-2"}>
                     <Input placeholder={"Email"} type={"email"} onChange={changeEmail}/>
                     <Input placeholder={"NickName"} type={"text"} onChange={changeNickname}/>
                     <Input placeholder={"Password"} type={"password"} onChange={changePassword}/>
