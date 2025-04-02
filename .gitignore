@@ -1,5 +1,6 @@
 *.pyc
 node_modules/
 .env
-build/
+frontend/build/
+!config/build/
 .idea

@@ -17,7 +17,7 @@ const App = () => {
             <div className="min-h-screen min-w-screen flex flex-col">
                 <Suspense fallback={<Loading type={LoadingType.Large} color={HexColor.black}/>}>
                     <Header/>
-                    <AppRoutes />
+                    <AppRoutes/>
                 </Suspense>
             </div>
         </BrowserRouter>
