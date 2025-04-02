@@ -34,7 +34,7 @@ app.add_middleware(GZipMiddleware, minimum_size=1000, compresslevel=5)
 
 origins = [
     "http://localhost",
-    "http://localhost:3000",
+    "http://localhost:8080",
 ]
 
 app.add_middleware(
