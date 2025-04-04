@@ -10,6 +10,14 @@ export const getBots = async () => {
         return null;
     }
 }
+export const UploadFile = async (file: File) => {
+    const {status, data} = await $api.post("/api/upload_file", {file}, {headers: {"Content-Type": file.type, "Content-Length": `${file.size}`}});
+    if (status === 200) {
+        return data.message;
+    } else if (status === 401) {
+        return null;
+    }
+} 
 
 export const addBot = async (bot: IBotForm) => {
     const {status, data} = await $api.post("/api/bots", {...bot});

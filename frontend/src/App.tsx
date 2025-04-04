@@ -4,6 +4,7 @@ import {HexColor} from "@/types/Color";
 import Loading from "@/ui/Loading/Loading";
 import {LoadingType} from "@/types/Loading";
 import {useAuth, useAutoLogin} from "@/hooks/auth";
+import AddBot from './pages/AddBot/AddBot';
 
 const Header = lazy(() => import("@/modules/Header/Header"));
 const AppRoutes = lazy(() => import("@/AppRoutes"));

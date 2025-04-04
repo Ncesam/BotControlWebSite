@@ -6,7 +6,7 @@ import Input from "@/ui/Input/Input";
 import Button, {ButtonType} from "@/ui/Button/Button";
 import {string, z} from "zod";
 import {IBotForm} from "@/types/Bots";
-import {addBot} from "@/http/BotsAPI";
+import {addBot, UploadFile} from "@/http/BotsAPI";
 import SelectMenu from "@/ui/SelectMenu/SelectMenu";
 import {SingleValue} from "react-select";
 import {Option} from "@/ui/SelectMenu/SelectMenu.props";
@@ -27,10 +27,10 @@ const botSchema = z.object({
     nicknames: z.string().nonempty("Имена людей должны быть обязательно"),
 });
 
-
 const AddBot: FC<AddBotProps> = ({}) => {
     const [isSettings, setIsSettings] = useState<boolean>(false);
     const [title, setTitle] = useState<string>("");
+    const [file, setFile] = useState<File| null>(null);
     const [description, setDescription] = useState<string>("");
     const [token, setToken] = useState<string>("");
     const [group_name, setGroupName] = useState<string>("");
@@ -55,6 +55,9 @@ const AddBot: FC<AddBotProps> = ({}) => {
                 bot.answers_type = answers_type.value;
             }
             await addBot(bot);
+            if (file) {
+                await UploadFile(file);
+            }
             setErrors({});
         } catch (e) {
             setErrors({form: "Ошибка при добавлении бота"});
@@ -65,7 +68,6 @@ const AddBot: FC<AddBotProps> = ({}) => {
             {!isSettings ?
                 <div className="flex flex-col justify-center items-center gap-4">
                     <Label color={TextColor.gray}>Добавить Бота</Label>
-
                     <Input
                         placeholder="Название"
                         type="text"
@@ -114,7 +116,7 @@ const AddBot: FC<AddBotProps> = ({}) => {
                             <Label color={TextColor.blue}>Тип Бота</Label>
                             <SelectMenu options={options} selected={answers_type} setSelected={setAnswersType}/>
                         </div>
-                        <AddForm errors={errors} selected={answers_type} value={nicknames} setValue={setNickNames}/>
+                        <AddForm file={file} setFile={setFile} errors={errors} selected={answers_type} value={nicknames} setValue={setNickNames}/>
                     </div>
                     <div className={"self-start"}>
                         <Button type={ButtonType.Back} onClick={() => setIsSettings(false)}>
