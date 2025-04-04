@@ -16,6 +16,7 @@ import {TextAreaType} from "@/ui/TextArea/TextArea.props";
 import {LabelSize} from "@/ui/Label/Label.props";
 import {options} from "@/utils/consts";
 import {AddBotProps} from "@/pages/AddBot/AddBot.props";
+import AddForm from "@/components/AddForm/AddForm";
 
 const botSchema = z.object({
     title: z.string().min(3, "Название должно быть минимум 3 символа").nonempty("Название обязательно для заполнения"),
@@ -60,7 +61,7 @@ const AddBot: FC<AddBotProps> = ({}) => {
         }
     }
     return (
-        <div className={"flex-1 flex justify-center items-center"}>
+        <div className={"flex-1 flex w-full justify-center items-center"}>
             {!isSettings ?
                 <div className="flex flex-col justify-center items-center gap-4">
                     <Label color={TextColor.gray}>Добавить Бота</Label>
@@ -107,18 +108,13 @@ const AddBot: FC<AddBotProps> = ({}) => {
                         <Button type={ButtonType.Submit} onClick={() => setIsSettings(true)}>Настройки</Button>
                     </div>
                 </div> :
-                <div className={"flex flex-col items-center w-full gap-4"}>
-                    <div className={"w-full gap-2"}>
+                <div className={"flex flex-col h-full w-1/2 gap-4"}>
+                    <div className={"gap-2"}>
                         <div className={"self-start w-1/2"}>
                             <Label color={TextColor.blue}>Тип Бота</Label>
                             <SelectMenu options={options} selected={answers_type} setSelected={setAnswersType}/>
                         </div>
-                        <div>
-                            <Label color={TextColor.blue} size={LabelSize.medium}>Имена людей</Label>
-                            <TextArea value={nicknames} type={TextAreaType.bordered} setValue={setNickNames}
-                                      placeholder={"Через запятую"}/>
-                            {errors.nicknames && <p className="text-red-500">{errors.nicknames}</p>}
-                        </div>
+                        <AddForm errors={errors} selected={answers_type} value={nicknames} setValue={setNickNames}/>
                     </div>
                     <div className={"self-start"}>
                         <Button type={ButtonType.Back} onClick={() => setIsSettings(false)}>

@@ -16436,3 +16436,8 @@ task: <Task pending name='Task-2' coro=<ControlPanel.loop() running at C:\Users\
 2025-04-02 15:26:45  src.Bot.BotController : INFO : Bot 32 loop has been cancelled.
 2025-04-02 15:26:45  src.Bot.BotController : INFO : Cleaning up bot 32.
 2025-04-02 15:26:46  root : INFO : Bot 32 stopped.
+2025-04-03 04:41:09  src.Controller.main : DEBUG : Started ControlPanel
+2025-04-03 04:41:43  src.API.Auth.logics : DEBUG : User test passed verification
+2025-04-03 04:41:43  src.API.Auth.logics : DEBUG : User successfully logged in
+2025-04-03 10:43:48  src.API.Auth.logics : DEBUG : User test passed verification
+2025-04-03 10:43:48  src.API.Auth.logics : DEBUG : User successfully logged in
