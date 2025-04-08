@@ -1,5 +1,5 @@
 import asyncio
-
+from src.Bots.Config import config
 from src.Bots.BaseController import BaseController
 
 
@@ -33,7 +33,7 @@ class AdsController(BaseController):
                     text=self.bot.text or "Реклама тут!",
                     attachment=attachment if attachment else None,
                 )
-                await asyncio.sleep(3600)
+                await asyncio.sleep(config.ADS_DELAY * 60)
             except Exception as e:
                 self.logger.error(f"Ошибка в ads loop у бота {self.bot.id}: {e}")
                 await asyncio.sleep(60)

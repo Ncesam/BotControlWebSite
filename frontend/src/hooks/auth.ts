@@ -10,7 +10,7 @@ const useAuth = () => {
         const refreshToken = async () => {
             try {
                 console.log("Refresh token...");
-                await $api.put("/api/auth/refresh", {}, {withCredentials: true});
+                await $api.put("/auth/refresh", {}, {withCredentials: true});
             } catch (error) {
                 console.error("Ошибка обновления токена:", error);
                 window.location.href = "/login";
@@ -34,7 +34,7 @@ const useAutoLogin = () => {
     useEffect(() => {
         const checkAuth = async () => {
             try {
-                const {status, data} = await $api.get("/api/auth/me", {withCredentials: true});
+                const {status, data} = await $api.get("/auth/me", {withCredentials: true});
 
                 if (status === 403) {
                     window.location.href = "/login";

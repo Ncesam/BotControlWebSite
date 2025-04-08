@@ -1,5 +1,6 @@
 import asyncio
 import logging
+import os
 import sys
 
 from fastapi import FastAPI
@@ -11,6 +12,13 @@ from src.API.Bots.router import router as bot_router
 from src.API.Config import config
 from src.API.Users.router import router as user_router
 from src.Bots.ControlPanel import ControlPanel
+
+
+if not os.path.exists("logs/"):
+    os.mkdir("logs")
+if not os.path.exists("logs/logs.log"):
+    with open("logs/logs.log", "w") as f:
+        pass
 
 logging.basicConfig(
     level=logging.DEBUG,

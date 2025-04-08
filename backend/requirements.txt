@@ -10,3 +10,4 @@ alembic>=1.15.1
 uvicorn>=0.34.0
 asyncpg
 python-multipart
+emoji
