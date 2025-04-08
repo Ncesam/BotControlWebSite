@@ -11,12 +11,10 @@ import SelectMenu from "@/ui/SelectMenu/SelectMenu";
 import {SingleValue} from "react-select";
 import {Option} from "@/ui/SelectMenu/SelectMenu.props";
 import ArrowLeft from "@/assets/svg/ArrowLeft.svg";
-import TextArea from "@/ui/TextArea/TextArea";
-import {TextAreaType} from "@/ui/TextArea/TextArea.props";
-import {LabelSize} from "@/ui/Label/Label.props";
-import {options} from "@/utils/consts";
+import {BOTS_ROUTE, options} from "@/utils/consts";
 import {AddBotProps} from "@/pages/AddBot/AddBot.props";
 import AddForm from "@/components/AddForm/AddForm";
+import {useNavigate} from "react-router-dom";
 
 const botSchema = z.object({
     title: z.string().min(3, "Название должно быть минимум 3 символа").nonempty("Название обязательно для заполнения"),
@@ -24,22 +22,25 @@ const botSchema = z.object({
     token: z.string().min(10, "Токен слишком короткий").nonempty("Токен обязательно для заполнения"),
     group_name: z.string().min(3, "Название группы должно быть минимум 3 символа").nonempty("Название группы обязательно для заполнения"),
     answers_type: z.record(string()).optional(),
-    nicknames: z.string().nonempty("Имена людей должны быть обязательно"),
+    nicknames: z.string().optional(),
+    text: z.string().optional()
 });
 
 const AddBot: FC<AddBotProps> = ({}) => {
     const [isSettings, setIsSettings] = useState<boolean>(false);
     const [title, setTitle] = useState<string>("");
-    const [file, setFile] = useState<File| null>(null);
+    const [file, setFile] = useState<File | null>(null);
     const [description, setDescription] = useState<string>("");
     const [token, setToken] = useState<string>("");
     const [group_name, setGroupName] = useState<string>("");
     const [nicknames, setNickNames] = useState<string>("");
+    const [text, setText] = useState<string>("");
     const [answers_type, setAnswersType] = useState<SingleValue<Option>>(options[0]);
     const [errors, setErrors] = useState<Record<string, string>>({});
+    const navigate = useNavigate();
 
     const click = async () => {
-        const bot: IBotForm = {title, description, token, group_name, answers_type, nicknames};
+        const bot: IBotForm = {title, description, token, group_name, answers_type, nicknames, text};
         const result = botSchema.safeParse(bot);
         if (!result.success) {
             const errorObj: Record<string, string> = {};
@@ -54,14 +55,16 @@ const AddBot: FC<AddBotProps> = ({}) => {
             if (answers_type && 'value' in answers_type) {
                 bot.answers_type = answers_type.value;
             }
-            await addBot(bot);
             if (file) {
-                await UploadFile(file);
+                await addBot(bot, file);
+            } else {
+                await addBot(bot);
             }
             setErrors({});
         } catch (e) {
             setErrors({form: "Ошибка при добавлении бота"});
         }
+        navigate(BOTS_ROUTE);
     }
     return (
         <div className={"flex-1 flex w-full justify-center items-center"}>
@@ -116,7 +119,11 @@ const AddBot: FC<AddBotProps> = ({}) => {
                             <Label color={TextColor.blue}>Тип Бота</Label>
                             <SelectMenu options={options} selected={answers_type} setSelected={setAnswersType}/>
                         </div>
-                        <AddForm file={file} setFile={setFile} errors={errors} selected={answers_type} value={nicknames} setValue={setNickNames}/>
+                        {!answers_type ? null : answers_type?.value === "baf" || answers_type?.value === "storage" ?
+                            <AddForm file={file} setFile={setFile} errors={errors} isAds={false} value={nicknames}
+                                     setValue={setNickNames}/> :
+                            <AddForm file={file} setFile={setFile} errors={errors} isAds={true} value={text}
+                                     setValue={setText}/>}
                     </div>
                     <div className={"self-start"}>
                         <Button type={ButtonType.Back} onClick={() => setIsSettings(false)}>

@@ -1,9 +1,11 @@
 import logging
+import os
 from datetime import datetime
 import random
-from typing import List
+from typing import List, Optional
 import aiohttp
 from src.VK_API.Schema import Conversation, Group, Message, User
+from src.VK_API.Schema.File import File
 from src.VK_API.Schema.Group import Chat
 
 
@@ -40,6 +42,15 @@ class API:
         )
         return user
 
+    async def getMe(self):
+        jsonData = await self.__execute("users.get")
+        user = User(
+            firstName=jsonData["response"][0]["first_name"],
+            lastName=jsonData["response"][0]["last_name"],
+            userId=jsonData["response"][0]["id"],
+        )
+        return user
+
     async def getConversations(self, offset: int = 0) -> List[Conversation]:
         jsonData = await self.__execute("messages.getConversations", offset=offset)
         resultList = []
@@ -69,15 +80,56 @@ class API:
             resultList.append(message)
         return resultList
 
-    async def sendMessage(self, peerId: int, reply_to: int, text: str) -> dict:
-        messageId = await self.__execute(
-            "messages.send",
-            peer_id=peerId,
-            message=text,
-            reply_to=reply_to,
-            random_id=random.randint(100000, 999999),
-        )
+    async def sendMessage(
+        self,
+        peerId: int,
+        text: Optional[str] = None,
+        reply_to: Optional[int] = None,
+        attachment: Optional[str] = None,
+    ) -> dict:
+        params = {"peer_id": peerId, "random_id": random.randint(100000, 999999)}
+
+        if text is not None:
+            params["message"] = text
+        if reply_to is not None:
+            params["reply_to"] = reply_to
+        if attachment is not None:
+            params["attachment"] = attachment
+
+        messageId = await self.__execute("messages.send", **params)
         return messageId
+
+    async def uploadFile(self, peerId: int, filename: str):
+        uploadUrl = await self.__execute(
+            "photos.getMessagesUploadServer", peer_id=peerId
+        )
+        self.logger.debug(uploadUrl)
+        async with aiohttp.ClientSession() as session:
+            with open(filename, "rb") as file:
+                form = aiohttp.FormData()
+                form.add_field(
+                    "photo",
+                    file,
+                    filename=os.path.basename(filename),
+                    content_type="image/jpeg",
+                )
+
+                response = await session.post(
+                    uploadUrl["response"]["upload_url"], data=form
+                )
+                response.raise_for_status()
+                save_params = await response.json()
+        file_data = await self.__execute(
+            "photos.saveMessagesPhoto",
+            photo=save_params["photo"],
+            server=save_params["server"],
+            hash=save_params["hash"],
+        )
+        file = File(
+            owner_id=file_data["response"][0]["owner_id"],
+            photo_id=file_data["response"][0]["id"],
+        )
+        return file
 
     async def getGroup(self, peerId: int) -> Group:
         jsonData = await self.__execute("groups.getById", group_id=abs(peerId))

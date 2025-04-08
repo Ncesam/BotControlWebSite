@@ -15,6 +15,7 @@ class Bot(Base):
     token: Mapped[str]
     group_name: Mapped[str]
     answers_type: Mapped[str] = mapped_column(default="storage")
-    nicknames: Mapped[list[str]] = mapped_column(ARRAY(String))
+    nicknames: Mapped[list[str]] = mapped_column(ARRAY(String), nullable=True)
+    text: Mapped[str] = mapped_column(nullable=True)
 
     user: Mapped["User"] = relationship(back_populates="bots")

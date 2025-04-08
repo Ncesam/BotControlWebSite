@@ -19,13 +19,15 @@ import {string, z} from "zod";
 import Loading from "@/ui/Loading/Loading";
 import {LoadingType} from "@/types/Loading";
 import TrashIcon from "@/assets/svg/TrashIcon.svg"
+import AddForm from "@/components/AddForm/AddForm";
 
 const botSchema = z.object({
     title: z.string().min(3, "Название должно быть минимум 3 символа").nonempty("Название обязательно для заполнения"),
     description: z.string().min(5, "Описание слишком короткое").nonempty("Описание обязательно для заполнения"),
     group_name: z.string().min(3, "Название группы должно быть минимум 3 символа").nonempty("Название группы обязательно для заполнения"),
     answers_type: z.record(string()).optional(),
-    nicknames: z.string().nonempty("Имена людей должны быть обязательно"),
+    nicknames: z.string().optional().nullable(),
+    text: z.string().optional().nullable()
 });
 const EditForm: FC<EditFormProps> = ({id, activity, setActivity}) => {
     const context = useContext(Context);
@@ -37,10 +39,13 @@ const EditForm: FC<EditFormProps> = ({id, activity, setActivity}) => {
     const [nicknames, setNickNames] = useState<string>("");
     const [token, setToken] = useState<string>("");
     const [answers_type, setAnswersType] = useState<SingleValue<Option>>(options[0]);
+    const [text, setText] = useState<string>("");
+    const [file, setFile] = useState<File | null>(null);
     const [errors, setErrors] = useState<Record<string, string>>({});
     const click = async () => {
-        const bot: IBotForm = {title, description, token, group_name, answers_type, nicknames};
+        const bot: IBotForm = {title, description, token, group_name, answers_type, nicknames, text};
         const result = botSchema.safeParse(bot);
+        console.log(result);
         if (!result.success) {
             const errorObj: Record<string, string> = {};
             result.error.issues.forEach((issue) => {
@@ -54,7 +59,11 @@ const EditForm: FC<EditFormProps> = ({id, activity, setActivity}) => {
             if (answers_type && 'value' in answers_type) {
                 bot.answers_type = answers_type.value;
             }
-            await editBot(bot, id);
+            if (file) {
+                await editBot(bot, id, file);
+            } else {
+                await editBot(bot, id);
+            }
             setActivity(false);
             setErrors({});
         } catch (e) {
@@ -71,8 +80,9 @@ const EditForm: FC<EditFormProps> = ({id, activity, setActivity}) => {
             setToken(bot.token);
             setGroupName(bot.group_name);
             setNickNames(
-                Array.isArray(bot.nicknames) ? bot.nicknames.join(", ") : bot.nicknames
+                Array.isArray(bot?.nicknames) ? bot?.nicknames.join(", ") : bot?.nicknames
             );
+            setText(bot.text);
             const selectedOption = options.find(option => option.value === bot.answers_type);
             setAnswersType(selectedOption || null);
         } else {
@@ -124,7 +134,8 @@ const EditForm: FC<EditFormProps> = ({id, activity, setActivity}) => {
                             <div className={"flex justify-between items-center gap-2 lg:gap-4"}>
                                 <Button type={ButtonType.Submit} onClick={click}>Изменить</Button>
                                 <Button type={ButtonType.Submit} onClick={() => setIsSettings(true)}>Настройки</Button>
-                                <Button type={ButtonType.Delete} onClick={async () => await deleteBot(id)}><TrashIcon color={"white"}/></Button>
+                                <Button type={ButtonType.Delete} onClick={async () => await deleteBot(id)}><TrashIcon
+                                    color={"white"}/></Button>
                             </div>
                         </div> :
                         <div className={"flex flex-col items-center w-full gap-4"}>
@@ -133,12 +144,12 @@ const EditForm: FC<EditFormProps> = ({id, activity, setActivity}) => {
                                     <Label color={TextColor.blue}>Тип Бота</Label>
                                     <SelectMenu options={options} selected={answers_type} setSelected={setAnswersType}/>
                                 </div>
-                                <div>
-                                    <Label color={TextColor.blue} size={LabelSize.medium}>Имена людей</Label>
-                                    <TextArea value={nicknames} type={TextAreaType.bordered} setValue={setNickNames}
-                                              placeholder={"Через запятую"}/>
-                                    {errors.nicknames && <p className="text-red-500">{errors.nicknames}</p>}
-                                </div>
+                                {!answers_type ? null : answers_type?.value === "baf" || answers_type?.value === "storage" ?
+                                    <AddForm file={file} setFile={setFile} errors={errors} isAds={false}
+                                             value={nicknames}
+                                             setValue={setNickNames}/> :
+                                    <AddForm file={file} setFile={setFile} errors={errors} isAds={true} value={text}
+                                             setValue={setText}/>}
                             </div>
                             <div className={"self-start"}>
                                 <Button type={ButtonType.Back} onClick={() => setIsSettings(false)}>

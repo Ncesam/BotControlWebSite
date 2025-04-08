@@ -10,7 +10,7 @@ from src.API.Auth.router import router as auth_router
 from src.API.Bots.router import router as bot_router
 from src.API.Config import config
 from src.API.Users.router import router as user_router
-from src.Controller.main import ControlPanel
+from src.Bots.ControlPanel import ControlPanel
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -32,11 +32,7 @@ app.include_router(bot_router)
 
 app.add_middleware(GZipMiddleware, minimum_size=1000, compresslevel=5)
 
-origins = [
-    "http://localhost",
-    "http://localhost:8080",
-    "http://localhost:3000"
-]
+origins = ["http://localhost", "http://localhost:8080", "http://localhost:3000"]
 
 app.add_middleware(
     CORSMiddleware,

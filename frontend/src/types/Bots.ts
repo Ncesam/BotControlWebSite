@@ -7,6 +7,7 @@ export interface IBot {
     group_name: string,
     status: boolean
     nicknames: string | string[],
+    text: string,
 }
 
 export interface IBotForm {
@@ -15,5 +16,6 @@ export interface IBotForm {
     token: string,
     group_name: string,
     answers_type: string | null | object,
-    nicknames: string
+    nicknames: string,
+    text: string,
 }

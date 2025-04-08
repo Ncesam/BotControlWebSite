@@ -1,7 +1,8 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, UploadFile, File
 from fastapi import Depends
 from starlette import status
 
+from src.API.Bots import utils
 from src.API.Bots.exceptions import BotUpdateError
 from src.API.Bots.logics import BotsLogics
 
@@ -19,7 +20,9 @@ async def get_bots(bots=Depends(BotsLogics.get_bots)):
 
 
 @router.post("")
-async def add_bot(bot=Depends(BotsLogics.add_bot)):
+async def add_bot(bot_id=Depends(BotsLogics.add_bot), file: UploadFile = File(None)):
+    if file:
+        await utils.upload_file(bot_id=bot_id, file=file)
     return {"status": status.HTTP_201_CREATED, "message": "Bot added"}
 
 
@@ -39,7 +42,11 @@ async def stop_bot(bots=Depends(BotsLogics.stop_bots)):
 
 
 @router.put("")
-async def update_bot(bot=Depends(BotsLogics.update_bot)):
-    if not bot:
+async def update_bot(
+    bot_id=Depends(BotsLogics.update_bot), file: UploadFile = File(None)
+):
+    if file:
+        await utils.upload_file(bot_id=bot_id, file=file)
+    if not bot_id:
         raise BotUpdateError
-    return {"status": status.HTTP_200_OK, "message": bot}
+    return {"status": status.HTTP_200_OK, "message": bot_id}

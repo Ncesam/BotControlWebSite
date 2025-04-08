@@ -3,4 +3,7 @@ node_modules/
 .env
 frontend/build/
 !config/build/
+backend/images/
+logs.log
+.venv
 .idea

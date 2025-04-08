@@ -1,5 +1,6 @@
 import logging
 
+from fastapi import Depends
 from starlette.requests import Request
 from starlette.responses import Response
 
@@ -16,22 +17,25 @@ class BotsLogics:
     logger = logging.getLogger(__name__)
 
     @classmethod
-    async def add_bot(cls, bot_data: BotForm, request: Request, response: Response):
+    async def add_bot(
+        cls, request: Request, response: Response, params: BotForm = Depends()
+    ):
         await AuthLogics.authenticate_user(request, response)
         user = await UsersLogics.get_user_by_request(request)
-        nicknames = bot_data.nicknames
+        nicknames = params.nicknames
         nicknames = prepare_nickname_string(nicknames)
         bot = Bot(
-            token=bot_data.token,
+            token=params.token,
             nicknames=nicknames,
             user_id=user.id,
             user=user,
-            title=bot_data.title,
-            description=bot_data.description,
-            group_name=bot_data.group_name,
-            answers_type=bot_data.answers_type,
+            title=params.title,
+            description=params.description,
+            group_name=params.group_name,
+            answers_type=params.answers_type,
         )
-        await BotService.add_bot(bot, user)
+        bot_id = await BotService.add_bot(bot, user)
+        return bot_id
 
     @classmethod
     async def get_bots(cls, request: Request, response: Response):
@@ -56,20 +60,24 @@ class BotsLogics:
         return f"Bot {bot_id} deleted"
 
     @classmethod
-    async def update_bot(cls, bot: BotUpdateForm, request: Request, response: Response):
+    async def update_bot(
+        cls, request: Request, response: Response, params: BotUpdateForm = Depends()
+    ):
         await AuthLogics.authenticate_user(request, response)
-        nicknames = bot.nicknames
+        nicknames = params.nicknames
+        cls.logger.debug(nicknames)
+        cls.logger.debug(params)
         nicknames = prepare_nickname_string(nicknames)
         await BotService.update_bot(
-            bot.id,
-            token=bot.token,
+            params.id,
+            token=params.token,
             nicknames=nicknames,
-            title=bot.title,
-            description=bot.description,
-            group_name=bot.group_name,
-            answers_type=bot.answers_type,
+            title=params.title,
+            description=params.description,
+            group_name=params.group_name,
+            answers_type=params.answers_type,
         )
-        return f"Bot {bot.id} updated"
+        return params.id
 
     @classmethod
     async def stop_bots(

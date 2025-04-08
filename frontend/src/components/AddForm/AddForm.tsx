@@ -9,21 +9,17 @@ import {TextAreaType} from "@/ui/TextArea/TextArea.props";
 import Input from "@/ui/Input/Input";
 import UploadFile from "@/ui/UploadFile/UploadFile";
 
-const AddForm: FC<AddFormProps> = ({file, setFile,selected, value, setValue, errors}) => {
+const AddForm: FC<AddFormProps> = ({file, setFile, isAds, value, setValue, errors}) => {
     const handlerFileChange = (e: ChangeEvent<HTMLInputElement>) => {
         if (!e.target.files) {
             return;
         }
         setFile(e.target.files[0])
     }
-
-    if (!selected) {
-        return null;
-    }
-    
-    if (selected.value === "storage" || selected.value === "baf") {
+    if (!isAds) {
         return (<div>
-            <Label color={TextColor.blue} size={LabelSize.medium}>Имена людей</Label>
+            <Label color={TextColor.blue} size={LabelSize.medium}>Имена людей
+            </Label>
             <TextArea
                 value={value}
                 type={TextAreaType.bordered}
@@ -32,7 +28,7 @@ const AddForm: FC<AddFormProps> = ({file, setFile,selected, value, setValue, err
             />
             {errors.nicknames && <p className="text-red-500">{errors.nicknames}</p>}
         </div>)
-    } else if (selected.value === "ads") {
+    } else {
         return (
             <div>
                 <Label color={TextColor.blue} size={LabelSize.medium}>Текст Рекламы</Label>
@@ -42,15 +38,16 @@ const AddForm: FC<AddFormProps> = ({file, setFile,selected, value, setValue, err
                     setValue={setValue}
                     placeholder="Текст Рекламы"
                 />
-                {errors.nicknames && <p className="text-red-500">{errors.nicknames}</p>}
+                {
+                    errors.nicknames && <p className="text-red-500">{errors.nicknames}</p>
+                }
                 <div>
-                   <UploadFile onChange={handlerFileChange}/>
+                    <UploadFile onChange={handlerFileChange}/>
                 </div>
             </div>
         )
     }
-
-};
+}
 
 export default AddForm;
 

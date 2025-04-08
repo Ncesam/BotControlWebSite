@@ -28,6 +28,7 @@ class BotService(BaseDTO):
         response = await cls.insert(bot_data)
         if not response:
             raise BotErrorAdd()
+        return response
 
     @classmethod
     async def delete_bot(cls, bot_id: int):

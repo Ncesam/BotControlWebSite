@@ -9,8 +9,4 @@ PyJWT>=2.10.1
 alembic>=1.15.1
 uvicorn>=0.34.0
 asyncpg
-pytest
-pytest-asyncio
-pre-commit
-flake8
-black
+python-multipart

@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 
 from pydantic import BaseModel
 
@@ -15,13 +15,17 @@ class BotDB(BaseModel):
     answers_type: str
 
 
-class BotForm(BaseModel):
+class BaseBotForm(BaseModel):
     title: str
     description: str
     token: str
     group_name: str
-    answers_type: str
-    nicknames: str
+
+
+class BotForm(BaseBotForm):
+    answers_type: Optional[str] = None
+    nicknames: Optional[str] = None
+    text: Optional[str] = None
 
 
 class BotUpdateForm(BotForm):

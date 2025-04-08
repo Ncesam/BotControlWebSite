@@ -128,7 +128,8 @@ class BaseDTO:
             try:
                 session.add(model_instance)
                 await session.commit()
-                return True
+                await session.refresh(model_instance)
+                return model_instance.id
             except IntegrityError as e:
                 await session.rollback()
                 cls.logger.error(f"IntegrityError {e}")
@@ -136,7 +137,7 @@ class BaseDTO:
             except SQLAlchemyError as e:
                 await session.rollback()
                 cls.logger.error(f"SQLAlchemy error {e}")
-                raise SQLalchemyError
+                raise SQLAlchemyError
 
     @classmethod
     async def delete_by_filters(cls, **filters):
