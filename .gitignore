@@ -1,9 +1,5 @@
-*.pyc
+.venv/
 node_modules/
+__pycache__
 .env
-frontend/build/
-!config/build/
-backend/images/
-logs.log
-.venv
-.idea
+src/frontend/build
