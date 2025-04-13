@@ -1,11 +1,12 @@
 import asyncio
 import logging
 
-from Utils import auto_register_controllers
+from src.BotsLogics.Utils import auto_register_controllers
+from src.Bots.service import BotService
 
-auto_register_controllers("Controllers")
+auto_register_controllers("src.BotsLogics.Controllers")
 
-from bots.BaseController import BaseController
+from src.BotsLogics.BaseController import BaseController
 
 
 class ControlPanel:
@@ -14,18 +15,16 @@ class ControlPanel:
     @classmethod
     def start(cls):
         asyncio.create_task(cls.loop())
-        cls.logger.debug("Started ControlPanel")
+        cls.logger.info("Started ControlPanel")
 
     @classmethod
     async def loop(cls):
         while True:
             try:
-                bots = await
-
+                bots = await BotService.get_all_bots()
                 active_bot_ids = {bot.id for bot in bots if bot.status}
                 existing_bot_ids = set(BaseController.running_bots)
 
-                # 🟢 Запустить новых активных ботов
                 new_bots = active_bot_ids - existing_bot_ids
                 for bot_id in new_bots:
                     bot = next((b for b in bots if b.id == bot_id), None)
@@ -38,12 +37,8 @@ class ControlPanel:
                     if bot:
                         await BaseController.stop(bot.id)
 
-                await asyncio.sleep(5)
+                await asyncio.sleep(10)
 
             except Exception as e:
                 cls.logger.exception(f"Error in ControlPanel loop: {e}")
                 await asyncio.sleep(3)
-
-
-if __name__ == "__main__":
-    ControlPanel.start()

@@ -1,18 +1,17 @@
-import asyncio
 import logging
+import multiprocessing
 import os
-import sys
 
 from fastapi import FastAPI
 from fastapi.middleware.gzip import GZipMiddleware
 from starlette.middleware.cors import CORSMiddleware
 
-from src.API.Auth.router import router as auth_router
-from src.API.Bots.router import router as bot_router
-from src.API.Config import config
-from src.API.Users.router import router as user_router
-from src.Bots.ControlPanel import ControlPanel
-
+from src.Auth.router import router as auth_router
+from src.Bots.router import router as bot_router
+from src.BotsLogics.ControlPanel import ControlPanel
+from src.BotsLogics.PriceChecker import price_updater_start
+from src.Config import config
+from src.Users.router import router as user_router
 
 if not os.path.exists("logs/"):
     os.mkdir("logs")
@@ -21,7 +20,7 @@ if not os.path.exists("logs/logs.log"):
         pass
 
 logging.basicConfig(
-    level=logging.DEBUG,
+    level=logging.INFO,
     format="%(asctime)s  %(name)s : %(levelname)s : %(message)s",
     datefmt="%Y-%m-%d %H:%M:%S",
     handlers=[
@@ -50,5 +49,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 # app.add_middleware(HTTPSRedirectMiddleware)
 
+
+@app.on_event("startup")
+async def startup():
+    # loop.create_task(price_database.add_all_item())
+    multiprocessing.Process(target=price_updater_start).start()
+    ControlPanel.start()

@@ -6,10 +6,10 @@ import jwt
 from sqlalchemy.exc import SQLAlchemyError
 from starlette.requests import Request
 
-from src.API.Auth.config import auth_settings
-from src.API.Auth.exceptions import JWTNotFound, JWTError, JWTExpired, ReLogin
-from src.API.Auth.service import UserService
-from src.API.Exceptions import ServerError
+from src.Auth.config import auth_settings
+from src.Auth.exceptions import JWTNotFound, JWTError, JWTExpired, ReLogin
+from src.Auth.service import UserService
+from src.Exceptions import ServerError
 
 
 class JWT:

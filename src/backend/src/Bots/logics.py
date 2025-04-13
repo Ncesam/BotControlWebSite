@@ -4,13 +4,13 @@ from fastapi import Depends
 from starlette.requests import Request
 from starlette.responses import Response
 
-from src.API.Auth.logics import AuthLogics
-from src.API.Bots.models import Bot
-from src.API.Bots.schemas import BotForm, BotParams, BotUpdateForm
-from src.API.Bots.service import BotService
-from src.API.Bots.utils import prepare_nickname_string
-from src.API.Users.logics import UsersLogics
-from src.API.Users.schemas import UserParameters
+from src.Auth.logics import AuthLogics
+from src.Bots.models import Bot
+from src.Bots.schemas import BotForm, BotParams, BotUpdateForm
+from src.Bots.service import BotService
+from src.Bots.utils import prepare_nickname_string
+from src.Users.logics import UsersLogics
+from src.Users.schemas import UserParameters
 
 
 class BotsLogics:
@@ -33,6 +33,7 @@ class BotsLogics:
             description=params.description,
             group_name=params.group_name,
             answers_type=params.answers_type,
+            text=params.text,
         )
         bot_id = await BotService.add_bot(bot, user)
         return bot_id
@@ -76,6 +77,7 @@ class BotsLogics:
             description=params.description,
             group_name=params.group_name,
             answers_type=params.answers_type,
+            text=params.text,
         )
         return params.id
 

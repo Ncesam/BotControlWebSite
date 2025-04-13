@@ -119,7 +119,7 @@ const AddBot: FC<AddBotProps> = ({}) => {
                             <Label color={TextColor.blue}>Тип Бота</Label>
                             <SelectMenu options={options} selected={answers_type} setSelected={setAnswersType}/>
                         </div>
-                        {!answers_type ? null : answers_type?.value === "baf" || answers_type?.value === "storage" ?
+                        {!answers_type ? null : answers_type?.value === "baf" || answers_type?.value === "shop" ?
                             <AddForm file={file} setFile={setFile} errors={errors} isAds={false} value={nicknames}
                                      setValue={setNickNames}/> :
                             <AddForm file={file} setFile={setFile} errors={errors} isAds={true} value={text}

@@ -1,7 +1,7 @@
 from sqlalchemy import ForeignKey, String, ARRAY
 from sqlalchemy.orm import Mapped, relationship, mapped_column
 
-from src.API.DataBase import Base
+from src.DataBase import Base
 
 
 class Bot(Base):
@@ -17,6 +17,5 @@ class Bot(Base):
     answers_type: Mapped[str] = mapped_column(default="storage")
     nicknames: Mapped[list[str]] = mapped_column(ARRAY(String), nullable=True)
     text: Mapped[str] = mapped_column(nullable=True)
-    sign: Mapped[str] = mapped_column(nullable=True)
 
     user: Mapped["User"] = relationship(back_populates="bots")

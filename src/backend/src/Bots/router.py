@@ -2,9 +2,9 @@ from fastapi import APIRouter, UploadFile, File
 from fastapi import Depends
 from starlette import status
 
-from src.API.Bots import utils
-from src.API.Bots.exceptions import BotUpdateError
-from src.API.Bots.logics import BotsLogics
+from src.Bots import utils
+from src.Bots.exceptions import BotUpdateError
+from src.Bots.logics import BotsLogics
 
 router = APIRouter(prefix="/api/bots", tags=["Bots"])
 

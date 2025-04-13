@@ -8,7 +8,6 @@ export interface IBot {
     status: boolean
     nicknames: string | string[],
     text: string,
-    sign: string
 }
 
 export interface IBotForm {
@@ -19,6 +18,4 @@ export interface IBotForm {
     answers_type: string | null | object,
     nicknames: string,
     text: string,
-    sign: string
-
 }

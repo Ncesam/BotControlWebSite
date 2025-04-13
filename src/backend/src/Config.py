@@ -9,23 +9,16 @@ class Config(BaseSettings):
     SERVICE_NAME: str
     SERVICE_PASSWORD: str
 
-    RABBITMQ_PORT: int
-
     POSTGRES_PORT: int
     POSTGRES_DATABASE: str
 
     MODE: Literal["Dev", "Prod"]
     VERSION: str
 
-    @computed_field
+    @computed_field(return_type=str)
     @property
     def POSTGRES_URL(self):
-        return f"postgresql+asyncpg://postgres:{self.SERVICE_PASSWORD}@{self.SERVICE_HOST}:{self.POSTGRES_PORT}/{self.POSTGRES_DATABASE}"
-
-    @computed_field
-    @property
-    def RABBITMQ_URL(self):
-        return f"aqmp://{self.SERVICE_NAME}:{self.SERVICE_PASSWORD}@{self.SERVICE_HOST}:{self.RABBITMQ_PORT}"
+        return f"postgresql+asyncpg://{self.SERVICE_NAME}:{self.SERVICE_PASSWORD}@{self.SERVICE_HOST}:{self.POSTGRES_PORT}/{self.POSTGRES_DATABASE}"
 
     class Config:
         env_file = ".env"

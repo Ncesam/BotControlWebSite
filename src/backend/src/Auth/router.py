@@ -3,7 +3,7 @@ from fastapi.responses import Response
 from starlette import status
 from starlette.requests import Request
 
-from src.API.Auth.logics import AuthLogics
+from src.Auth.logics import AuthLogics
 
 router = APIRouter(prefix="/api/auth", tags=["auth"])
 

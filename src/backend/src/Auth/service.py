@@ -1,9 +1,9 @@
 import logging
 
-from src.API.Auth.exceptions import UserNotFound, UserAlreadyExists
-from src.API.Auth.models import User
-from src.API.Auth.schemas import UserDB
-from src.API.DataBase import BaseDTO
+from src.Auth.exceptions import UserNotFound, UserAlreadyExists
+from src.Auth.models import User
+from src.Auth.schemas import UserDB
+from src.DataBase import BaseDTO
 
 
 class UserService(BaseDTO):

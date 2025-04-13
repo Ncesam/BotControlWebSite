@@ -1,9 +1,9 @@
 import logging
 
-from src.API.Auth.models import User
-from src.API.Bots.exceptions import BotNotFound, BotErrorAdd
-from src.API.Bots.models import Bot
-from src.API.DataBase import BaseDTO
+from src.Auth.models import User
+from src.Bots.exceptions import BotNotFound, BotErrorAdd
+from src.Bots.models import Bot
+from src.DataBase import BaseDTO
 
 
 class BotService(BaseDTO):

@@ -4,9 +4,10 @@ from datetime import datetime
 import random
 from typing import List, Optional
 import aiohttp
-from bots.VK_API.Schema import Conversation, Group, Message, User
-from bots.VK_API.Schema.File import File
-from bots.VK_API.Schema.Group import Chat
+from src.BotsLogics.VK_API.Schema import Conversation, Group, Message, User
+from src.BotsLogics.VK_API.Schema.File import File
+from src.BotsLogics.VK_API.Schema.Group import Chat
+from src.BotsLogics.VK_API.Schema.Message import ReplyMessage
 
 
 class APIError(Exception):
@@ -44,7 +45,7 @@ class API:
 
     async def getTS(self):
         jsonData = await self.__execute("messages.getLongPollServer")
-        return jsonData['response']['ts']
+        return jsonData["response"]["ts"]
 
     async def getMe(self):
         jsonData = await self.__execute("users.get")
@@ -68,10 +69,14 @@ class API:
         return resultList
 
     async def getHistoryMessages(
-            self, peerId: int, count: int = 10, offset: int = 0
+        self, peerId: int, count: int = 10, offset: int = 0, last_message_id: int = 0
     ) -> List[Message]:
         jsonData = await self.__execute(
-            "messages.getHistory", count=count, offset=offset, peer_id=peerId
+            "messages.getHistory",
+            count=count,
+            offset=offset,
+            peer_id=peerId,
+            start_message_id=last_message_id,
         )
         resultList = []
         for messageData in jsonData["response"]["items"]:
@@ -79,17 +84,26 @@ class API:
                 date=datetime.fromtimestamp(messageData["date"]),
                 peerId=messageData["from_id"],
                 messageId=messageData["id"],
+                reply=(
+                    ReplyMessage(
+                        peerId=messageData["reply_message"]["from_id"],
+                        messageId=messageData["reply_message"]["id"],
+                        text=messageData["reply_message"]["text"],
+                    )
+                    if messageData.get("reply_message", None)
+                    else None
+                ),
                 text=messageData["text"],
             )
             resultList.append(message)
         return resultList
 
     async def sendMessage(
-            self,
-            peerId: int,
-            text: Optional[str] = None,
-            reply_to: Optional[int] = None,
-            attachment: Optional[str] = None,
+        self,
+        peerId: int,
+        text: Optional[str] = None,
+        reply_to: Optional[int] = None,
+        attachment: Optional[str] = None,
     ) -> dict:
         params = {"peer_id": peerId, "random_id": random.randint(100000, 999999)}
 

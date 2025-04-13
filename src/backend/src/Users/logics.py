@@ -3,10 +3,10 @@ from typing import List
 
 from starlette.requests import Request
 
-from src.API.Auth.dependencies import JWT
-from src.API.Auth.models import User
-from src.API.Auth.service import UserService
-from src.API.Users.schemas import UserParameters
+from src.Auth.dependencies import JWT
+from src.Auth.models import User
+from src.Auth.service import UserService
+from src.Users.schemas import UserParameters
 
 
 class UsersLogics:

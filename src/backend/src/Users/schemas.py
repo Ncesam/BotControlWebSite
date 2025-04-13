@@ -2,7 +2,7 @@ from typing import List, Optional
 
 from pydantic import BaseModel
 
-from src.API.Bots.schemas import BotDB
+from src.Bots.schemas import BotDB
 
 
 class UserParameters(BaseModel):

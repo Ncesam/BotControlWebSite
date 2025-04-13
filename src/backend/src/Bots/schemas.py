@@ -13,6 +13,7 @@ class BotDB(BaseModel):
     group_name: str
     nicknames: List[str]
     answers_type: str
+    text: Optional[str]
 
 
 class BaseBotForm(BaseModel):
@@ -26,7 +27,6 @@ class BotForm(BaseBotForm):
     answers_type: Optional[str] = None
     nicknames: Optional[str] = None
     text: Optional[str] = None
-    sign: Optional[str] = None
 
 
 class BotUpdateForm(BotForm):

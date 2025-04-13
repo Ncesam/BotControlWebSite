@@ -1,6 +1,6 @@
 import asyncio
-from src.Bots.Config import config
-from src.Bots.BaseController import BaseController
+from src.BotsLogics.Config import config
+from src.BotsLogics.BaseController import BaseController
 
 
 @BaseController.register_controller("ads")
@@ -30,7 +30,7 @@ class AdsController(BaseController):
             try:
                 await self.api.sendMessage(
                     peerId=self.group_id,
-                    text=self.bot.text or "Реклама тут!",
+                    text=self.bot.text,
                     attachment=attachment if attachment else None,
                 )
                 await asyncio.sleep(config.ADS_DELAY * 60)

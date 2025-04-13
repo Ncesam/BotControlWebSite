@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
 
-from src.API.Users.logics import UsersLogics
+from src.Users.logics import UsersLogics
 
 router = APIRouter(prefix="/api/user", tags=["User"])
 

@@ -1,5 +1,5 @@
 # Use the official Python image
-FROM python:3.13
+FROM python:3.13-alpine
 
 # Set the working directory
 WORKDIR /app
@@ -16,4 +16,4 @@ EXPOSE 8000
 
 
 # Run the FastAPI app using Uvicorn
-CMD ["uvicorn", "src.API.main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "4"]
+CMD ["/bin/bash", "alembic revision --autogenerate", "&& alembic upgrade head","&& uvicorn", "src.API.main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "1"]

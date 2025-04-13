@@ -11,5 +11,6 @@ uvicorn>=0.34.0
 asyncpg
 python-multipart
 motor
-faststream
 emoji
+requests
+

@@ -5,8 +5,8 @@ import mimetypes
 import os
 from abc import abstractmethod, ABC
 
-from backend.Bots.service import BotService
-from VK_API.API import API
+from src.BotsLogics.VK_API.API import API
+from src.Bots.service import BotService
 
 
 class BaseController(ABC):

@@ -3,12 +3,12 @@ import logging
 from starlette.requests import Request
 from starlette.responses import Response
 
-from src.API.Auth.dependencies import JWT
-from src.API.Auth.exceptions import PasswordNotMatch
-from src.API.Auth.schemas import User
-from src.API.Auth.models import User as UserDB
-from src.API.Auth.service import UserService
-from src.API.Users.logics import UsersLogics
+from src.Auth.dependencies import JWT
+from src.Auth.exceptions import PasswordNotMatch
+from src.Auth.schemas import User
+from src.Auth.models import User as UserDB
+from src.Auth.service import UserService
+from src.Users.logics import UsersLogics
 
 
 class AuthLogics:

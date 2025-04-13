@@ -1,11 +1,8 @@
-import json
 import logging
 import os
 from typing import List, Union
 
 from fastapi import UploadFile
-
-
 
 
 def prepare_nickname_string(nicknames: Union[str, List[str]]) -> List[str]:
@@ -26,4 +23,3 @@ async def upload_file(bot_id: int, file: UploadFile):
         logging.debug("Upload File" + " " + filename)
         f.write(await file.read())
         f.close()
-
