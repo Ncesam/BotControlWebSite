@@ -16,4 +16,5 @@ EXPOSE 8000
 
 
 # Run the FastAPI app using Uvicorn
-CMD ["/bin/bash", "alembic revision --autogenerate", "&& alembic upgrade head","&& uvicorn", "src.API.main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "1"]
+CMD sh -c "alembic revision --autogenerate || true && alembic upgrade head || true && uvicorn src.main:app --host 0.0.0.0 --port 8000 --workers 1"
+

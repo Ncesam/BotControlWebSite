@@ -5,10 +5,10 @@ from pydantic import computed_field
 
 
 class Config(BaseSettings):
-    SERVICE_HOST: str
     SERVICE_NAME: str
     SERVICE_PASSWORD: str
 
+    POSTGRES_HOST: str
     POSTGRES_PORT: int
     POSTGRES_DATABASE: str
 
@@ -18,7 +18,7 @@ class Config(BaseSettings):
     @computed_field(return_type=str)
     @property
     def POSTGRES_URL(self):
-        return f"postgresql+asyncpg://{self.SERVICE_NAME}:{self.SERVICE_PASSWORD}@{self.SERVICE_HOST}:{self.POSTGRES_PORT}/{self.POSTGRES_DATABASE}"
+        return f"postgresql+asyncpg://{self.SERVICE_NAME}:{self.SERVICE_PASSWORD}@{self.POSTGRES_HOST}:{self.POSTGRES_PORT}/{self.POSTGRES_DATABASE}"
 
     class Config:
         env_file = ".env"
