@@ -11,10 +11,10 @@ from src.BotsLogics.VK_API.Schema.Message import Message
 
 answers_storage = {
     r"передать {item} - {n}": "put_handler",
-    r"{first_name}, взять {item} - {n}": "take_handler",
-    r"{first_name}, взять {item}": "take_handler",
-    r"{first_name}, мой баланс": "balance",
-    r"{first_name}": "random_quote_handler",
+    r"{title}, взять {item} - {n}": "take_handler",
+    r"{title}, взять {item}": "take_handler",
+    r"{title}, мой баланс": "balance",
+    r"{title}": "random_quote_handler",
 }
 answers = {
     "not enough": """На вашем счету недостаточно средств.
@@ -80,7 +80,7 @@ class StorageController(BaseController):
 
     def compile_pattern(self, pattern: str) -> str:
         # Подставляем first_name и last_name
-        pattern = pattern.replace("{first_name}", re.escape(self.first_name))
+        pattern = pattern.replace("{title}", re.escape(self.bot.title))
         pattern = pattern.replace("{last_name}", re.escape(self.last_name))
 
         # Превращаем переменные в именованные группы

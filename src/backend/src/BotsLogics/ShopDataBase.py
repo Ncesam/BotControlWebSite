@@ -21,7 +21,7 @@ class ShopDataBase:
     def __init__(self, bot_id: int):
         self.bot_id = bot_id
         self.client = AsyncIOMotorClient(
-            host=config.SERVICE_HOST, port=config.MONGODB_PORT
+            host=config.MONGODB_HOST, port=config.MONGODB_PORT
         )
         self.db = self.client[str(self.bot_id)]
         self.collection = self.db["users"]
@@ -64,7 +64,7 @@ class PriceDataBase:
 
     def __init__(self):
         self.client = AsyncIOMotorClient(
-            host=config.SERVICE_HOST, port=config.MONGODB_PORT
+            host=config.MONGODB_HOST, port=config.MONGODB_PORT
         )
         self.db = self.client["Price"]
         self.collection = self.db["Price"]

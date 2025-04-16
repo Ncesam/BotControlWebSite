@@ -1,44 +1,55 @@
 import asyncio
-
 import random
 import re
 
 from src.BotsLogics.BaseController import BaseController
 
-answers_storage = {
-    r"/баф а": "благославение атаки",
-    r"/баф з": "благославение защиты",
-    r"/баф у": "благославение удачи",
-    r"/баф ч": "благославение человека",
-    r"/баф г": "благославение гоблина",
-    r"/баф н": "благославение нежити",
-    r"/баф э": "благославение эльфа",
-    r"/баф м": "благославение гнома",
-    r"/баф д": "благославение демона",
-    r"/баф о": "благославение орка",
-    r"/баф л": "благославение неудачи",
-    r"/баф б": "благославение боли",
-    r"/баф ю": "благославение добычи",
-    r"/баф и": "благославение очищение",
-    r"/баф с": "благославение света",
-    r"/баф т": "благославение огня",
+apostol_answers = {
+    r"{title} а": "благославение атаки",
+    r"{title} у": "благославение удачи",
+    r"{title} г": "благославение гоблина",
+    r"{title} н": "благославение нежити",
+    r"{title} д": "благославение демона",
+    r"{title} м": "благославение гнома",
+    r"{title} о": "благославение орка",
     r"/бафы": """✨Список бафов:
 а - атаки
-з - защиты
 у - удачи
-ч - человека
 г - гоблина
 н - нежити
-э - эльфа
 м - гнома
 д - демона
-о - орка
+о - орка""",
+}
+black_booker_answers = {
+    r"{title} л": "благославение неудачи",
+    r"{title} б": "благославение боли",
+    r"{title} ю": "благославение добычи",
+    r"/бафы": """✨Список бафов:
 л - неудачи
 б - боли
-ю - добычи
+ю - добычи""",
+}
+divide_answers = {
+    r"{title} т": "благославение огня",
+    r"{title} и": "благославение очищение",
+    r"/бафы": """✨Список бафов:
 и - очищение
-с - света
 т - огня""",
+}
+light_answers = {
+    r"{title} и": "благославение очищение",
+    r"{title} с": "благославение света",
+    r"/бафы": """✨Список бафов:
+и - очищение
+с - света""",
+}
+
+baf_answers = {
+    "Воплащение": light_answers,
+    "Крестоносец": divide_answers,
+    "Чернокнижник": black_booker_answers,
+    "Апостол": apostol_answers,
 }
 
 
@@ -46,7 +57,12 @@ answers_storage = {
 class StorageController(BaseController):
     async def loop(self):
         processed_messages = set()
-
+        self.answers_storage = {}
+        answers =  baf_answers.get(self.bot.description.split("-")[-1], None)
+        if answers:
+            self.answers_storage = answers
+        else:
+            self.answers_storage = baf_answers['Апостол']
         try:
             messages = await self.api.getHistoryMessages(
                 peerId=self.group_id, last_message_id=-1
@@ -85,10 +101,15 @@ class StorageController(BaseController):
 
     def choose_answer(self, message: str):
         """Выбирает ответ, подставляя переменные, если это необходимо"""
-        for pattern, response_template in answers_storage.items():
-            if re.fullmatch(pattern, message, flags=re.IGNORECASE):
+        for pattern, response_template in self.answers_storage.items():
+            regex_pattern = self.compile_pattern(pattern)
+            if re.match(regex_pattern, message, flags=re.IGNORECASE):
                 return response_template
         return None
+
+    def compile_pattern(self, pattern: str):
+        pattern = pattern.replace("{title}", re.escape(self.bot.title))
+        return re.sub(r"{(\w+)}", r"(?P<\1>.+)", pattern)
 
     async def get_user_name(self, user_id: int):
         """Получаем имя пользователя по ID"""
