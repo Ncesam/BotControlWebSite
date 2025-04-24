@@ -7,7 +7,9 @@ export interface IBot {
     group_name: string,
     status: boolean
     nicknames: string | string[],
+    commands: Command[],
     text: string,
+    ads_delay: number
 }
 
 export interface IBotForm {
@@ -18,4 +20,13 @@ export interface IBotForm {
     answers_type: string | null | object,
     nicknames: string,
     text: string,
+    ads_delay: number,
 }
+
+export type Command = {
+    id: number;
+    regex: string;
+    answer: string;
+    name: string;
+    enabled: boolean;
+};

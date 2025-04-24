@@ -1,68 +1,17 @@
 import asyncio
 import random
 import re
+from typing import List
 
+from src.Bots.schemas import Command
 from src.BotsLogics.BaseController import BaseController
-
-apostol_answers = {
-    r"{title} а": "благословение атаки",
-    r"{title} у": "благословение удачи",
-    r"{title} г": "благословение гоблина",
-    r"{title} н": "благословение нежити",
-    r"{title} д": "благословение демона",
-    r"{title} м": "благословение гнома",
-    r"{title} о": "благословение орка",
-    r"/бафы": """✨Список бафов:
-а - атаки
-у - удачи
-г - гоблина
-н - нежити
-м - гнома
-д - демона
-о - орка""",
-}
-black_booker_answers = {
-    r"{title} л": "проклятие неудачи",
-    r"{title} б": "проклятие боли",
-    r"{title} ю": "проклятие добычи",
-    r"/бафы": """✨Список бафов:
-л - неудачи
-б - боли
-ю - добычи""",
-}
-divide_answers = {
-    r"{title} т": "очищение огнем",
-    r"{title} и": "очищение",
-    r"/бафы": """✨Список бафов:
-и - очищение
-т - огня""",
-}
-light_answers = {
-    r"{title} и": "очищение",
-    r"{title} с": "очищение светом",
-    r"/бафы": """✨Список бафов:
-и - очищение
-с - света""",
-}
-
-baf_answers = {
-    "Воплащение": light_answers,
-    "Крестоносец": divide_answers,
-    "Чернокнижник": black_booker_answers,
-    "Апостол": apostol_answers,
-}
-
 
 @BaseController.register_controller("baf")
 class StorageController(BaseController):
     async def loop(self):
         processed_messages = set()
         self.answers_storage = {}
-        answers =  baf_answers.get(self.bot.description.split("-")[-1], None)
-        if answers:
-            self.answers_storage = answers
-        else:
-            self.answers_storage = baf_answers['Апостол']
+        self.commands: List[Command]= self.bot.commands
         try:
             messages = await self.api.getHistoryMessages(
                 peerId=self.group_id, last_message_id=-1
@@ -101,10 +50,10 @@ class StorageController(BaseController):
 
     def choose_answer(self, message: str):
         """Выбирает ответ, подставляя переменные, если это необходимо"""
-        for pattern, response_template in self.answers_storage.items():
-            regex_pattern = self.compile_pattern(pattern)
+        for command in self.commands:
+            regex_pattern = self.compile_pattern(command.regex)
             if re.match(regex_pattern, message, flags=re.IGNORECASE):
-                return response_template
+                return command.answer
         return None
 
     def compile_pattern(self, pattern: str):

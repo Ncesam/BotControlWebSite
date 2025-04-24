@@ -1,4 +1,5 @@
 import logging
+from typing import List
 
 from fastapi import Depends
 from starlette.requests import Request
@@ -6,7 +7,7 @@ from starlette.responses import Response
 
 from src.Auth.logics import AuthLogics
 from src.Bots.models import Bot
-from src.Bots.schemas import BotForm, BotParams, BotUpdateForm
+from src.Bots.schemas import BotForm, BotParams, BotUpdateForm, Command
 from src.Bots.service import BotService
 from src.Bots.utils import prepare_nickname_string
 from src.Users.logics import UsersLogics
@@ -34,6 +35,7 @@ class BotsLogics:
             group_name=params.group_name,
             answers_type=params.answers_type,
             text=params.text,
+            ads_delay=params.ads_delay
         )
         bot_id = await BotService.add_bot(bot, user)
         return bot_id
@@ -61,6 +63,13 @@ class BotsLogics:
         return f"Bot {bot_id} deleted"
 
     @classmethod
+    async def add_command(cls, id: int, request: Request, response: Response, commands: List[Command]):
+        await AuthLogics.authenticate_user(request, response)
+        commandsList = [command.model_dump() for command in commands]
+        await BotService.update_bot(bot_id=id, commands=commandsList)
+        return id
+    
+    @classmethod
     async def update_bot(
         cls, request: Request, response: Response, params: BotUpdateForm = Depends()
     ):
@@ -78,6 +87,7 @@ class BotsLogics:
             group_name=params.group_name,
             answers_type=params.answers_type,
             text=params.text,
+            ads_delay=params.ads_delay
         )
         return params.id
 

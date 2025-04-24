@@ -33,7 +33,7 @@ class AdsController(BaseController):
                     text=self.bot.text,
                     attachment=attachment if attachment else None,
                 )
-                await asyncio.sleep(config.ADS_DELAY * 60)
+                await asyncio.sleep(self.bot.ads_delay * 60)
             except Exception as e:
                 self.logger.error(f"Ошибка в ads loop у бота {self.bot.id}: {e}")
                 await asyncio.sleep(60)

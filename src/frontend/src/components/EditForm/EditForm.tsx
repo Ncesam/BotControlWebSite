@@ -1,25 +1,35 @@
-import React, {FC, useContext, useEffect, useState} from "react";
-import {EditFormProps} from "./EditForm.props";
+import React, { FC, useContext, useEffect, useState } from "react";
+import { EditFormProps } from "./EditForm.props";
 import Label from "@/ui/Label/Label";
-import {HexColor, TextColor} from "@/types/Color";
+import { HexColor, TextColor } from "@/types/Color";
 import Input from "@/ui/Input/Input";
-import Button, {ButtonType} from "@/ui/Button/Button";
+import Button, { ButtonType } from "@/ui/Button/Button";
 import SelectMenu from "@/ui/SelectMenu/SelectMenu";
-import {LabelSize} from "@/ui/Label/Label.props";
+import { LabelSize } from "@/ui/Label/Label.props";
 import TextArea from "@/ui/TextArea/TextArea";
-import {TextAreaType} from "@/ui/TextArea/TextArea.props";
+import { TextAreaType } from "@/ui/TextArea/TextArea.props";
 import ArrowLeft from "@/assets/svg/ArrowLeft.svg";
-import {Context} from "@/index";
-import {SingleValue} from "react-select";
-import {Option} from "@/ui/SelectMenu/SelectMenu.props";
-import {options} from "@/utils/consts";
-import {IBotForm} from "@/types/Bots";
-import {deleteBot, editBot} from "@/http/BotsAPI";
-import {string, z} from "zod";
+import { Context } from "@/index";
+import { SingleValue } from "react-select";
+import { Option } from "@/ui/SelectMenu/SelectMenu.props";
+import { commands, options } from "@/utils/consts";
+import { Command, IBotForm } from "@/types/Bots";
+import { deleteBot, editBot, sendCommands } from "@/http/BotsAPI";
+import { string, z } from "zod";
 import Loading from "@/ui/Loading/Loading";
-import {LoadingType} from "@/types/Loading";
+import { LoadingType } from "@/types/Loading";
 import TrashIcon from "@/assets/svg/TrashIcon.svg"
 import AddForm from "@/components/AddForm/AddForm";
+import CheckBox from "@/ui/CheckBox/CheckBox";
+import CenterModal from "../Modals/CenterModal/CenterModal";
+import { time } from "console";
+const commandSchema = z.object({
+    id: z.number(),
+    regex: z.string(),
+    answer: z.string(),
+    name: z.string(),
+    enabled: z.boolean().optional()
+});
 
 const botSchema = z.object({
     title: z.string().min(3, "Название должно быть минимум 3 символа").nonempty("Название обязательно для заполнения"),
@@ -27,12 +37,14 @@ const botSchema = z.object({
     group_name: z.string().min(3, "Название группы должно быть минимум 3 символа").nonempty("Название группы обязательно для заполнения"),
     answers_type: z.record(string()).optional(),
     nicknames: z.string().optional().nullable(),
-    text: z.string().optional().nullable()
+    text: z.string().optional().nullable(),
+    commands: z.array(commandSchema).optional()
 });
-const EditForm: FC<EditFormProps> = ({id, activity, setActivity}) => {
+const EditForm: FC<EditFormProps> = ({ id, activity, setActivity }) => {
     const context = useContext(Context);
     const [isSettings, setIsSettings] = useState<boolean>(false);
     const [isLoading, setIsLoading] = useState<boolean>(true);
+
     const [title, setTitle] = useState<string>("");
     const [description, setDescription] = useState<string>("");
     const [group_name, setGroupName] = useState<string>("");
@@ -41,9 +53,28 @@ const EditForm: FC<EditFormProps> = ({id, activity, setActivity}) => {
     const [answers_type, setAnswersType] = useState<SingleValue<Option>>(options[0]);
     const [text, setText] = useState<string>("");
     const [file, setFile] = useState<File | null>(null);
+    const [active, setIsActive] = useState<boolean>(false);
+    const [commandsState, setCommands] = useState<Command[]>(commands)
+    const [ads_delay, setAdsDelay] = useState<number>(10);
+
     const [errors, setErrors] = useState<Record<string, string>>({});
+
+    const toggleCommand = (id: number) => {
+        setCommands(prevCommands =>
+            prevCommands.map(cmd =>
+                cmd.id === id ? { ...cmd, enabled: !cmd.enabled } : cmd
+            )
+        );
+    };
+    const sendActiveCommands = async () => {
+        const activeCommands = commandsState.filter(cmd => cmd.enabled);
+        if (activeCommands.length === 0) {
+            return null;
+        }
+        await sendCommands(activeCommands, id);
+    }
     const click = async () => {
-        const bot: IBotForm = {title, description, token, group_name, answers_type, nicknames, text};
+        const bot: IBotForm = { title, description, token, group_name, answers_type, nicknames, text, ads_delay };
         const result = botSchema.safeParse(bot);
         console.log(result);
         if (!result.success) {
@@ -67,7 +98,7 @@ const EditForm: FC<EditFormProps> = ({id, activity, setActivity}) => {
             setActivity(false);
             setErrors({});
         } catch (e) {
-            setErrors({form: "Ошибка при измении бота"});
+            setErrors({ form: "Ошибка при измении бота" });
         }
     }
     useEffect(() => {
@@ -85,16 +116,27 @@ const EditForm: FC<EditFormProps> = ({id, activity, setActivity}) => {
             setText(bot.text);
             const selectedOption = options.find(option => option.value === bot.answers_type);
             setAnswersType(selectedOption || null);
+            if (bot.commands) {
+                const mergedMap = new Map<number, Command>();
+                commands.forEach(cmd => mergedMap.set(cmd.id, { ...cmd }));
+                bot.commands.forEach(cmd => mergedMap.set(cmd.id, { ...cmd, enabled: true }));
+                const commandsArray = Array.from(mergedMap.values())
+                setCommands(commandsArray)
+            }
+            setAdsDelay(bot.ads_delay)
         } else {
-            setErrors({form: "Бот с таким ID не найден"});
+            setErrors({ form: "Бот с таким ID не найден" });
         }
         setIsLoading(false);
     }, [id, context?.bots.bots])
+    useEffect(() => {
+        sendActiveCommands()
+    }, [commandsState])
     return (
         <div>
             <Label size={LabelSize.small} color={TextColor.black}>{id}</Label>
             {
-                isLoading ? <Loading type={LoadingType.Small} color={HexColor.blue}/> :
+                isLoading ? <Loading type={LoadingType.Small} color={HexColor.blue} /> :
                     !isSettings ?
                         <div className="flex flex-col justify-center items-center gap-2">
                             <Label color={TextColor.gray}>Изменить Бота</Label>
@@ -135,25 +177,43 @@ const EditForm: FC<EditFormProps> = ({id, activity, setActivity}) => {
                                 <Button type={ButtonType.Submit} onClick={click}>Изменить</Button>
                                 <Button type={ButtonType.Submit} onClick={() => setIsSettings(true)}>Настройки</Button>
                                 <Button type={ButtonType.Delete} onClick={async () => await deleteBot(id)}><TrashIcon
-                                    color={"white"}/></Button>
+                                    color={"white"} /></Button>
                             </div>
                         </div> :
                         <div className={"flex flex-col items-center w-full gap-4"}>
                             <div className={"w-full gap-2"}>
                                 <div className={"self-start w-1/2"}>
                                     <Label color={TextColor.blue}>Тип Бота</Label>
-                                    <SelectMenu options={options} selected={answers_type} setSelected={setAnswersType}/>
+                                    <SelectMenu options={options} selected={answers_type} setSelected={setAnswersType} />
                                 </div>
                                 {!answers_type ? null : answers_type?.value === "baf" || answers_type?.value === "shop" ?
                                     <AddForm file={file} setFile={setFile} errors={errors} isAds={false}
-                                             value={nicknames}
-                                             setValue={setNickNames}/> :
-                                    <AddForm file={file} setFile={setFile} errors={errors} isAds={true} value={text}
-                                             setValue={setText}/>}
+                                        value={nicknames}
+                                        setValue={setNickNames} /> :
+                                    <div className={"gap-3"}>
+                                        <AddForm file={file} setFile={setFile} errors={errors} isAds={true} value={text}
+                                            setValue={setText} />
+                                        <Label size={LabelSize.medium} color={TextColor.blue}>Время между рекламой</Label>
+                                        <Input placeholder={"Время между рекламой"} type="text" value={ads_delay.toString()} onChange={(e) => setAdsDelay(Number(e.target.value))} /></div>
+                                }
                             </div>
+                            {!answers_type ? null : answers_type?.value === "baf" ?
+                                <Button type={ButtonType.Submit} onClick={() => setIsActive(!active)}>
+                                    Открыть команды
+                                </Button> : null}
+                            {
+                                active ? <CenterModal activity={active} setActivity={setIsActive}>
+                                    <div className={"h-full w-full grid grid-cols-2 gap-1"}>
+                                        {commandsState.map((command) => <CheckBox key={command.id} setValue={async () => {
+                                            toggleCommand(command.id)
+                                        }} placeholder={command.name} value={command.enabled} />
+                                        )}
+                                    </div>
+                                </CenterModal> : null
+                            }
                             <div className={"self-start"}>
                                 <Button type={ButtonType.Back} onClick={() => setIsSettings(false)}>
-                                    <ArrowLeft color={"#2b7fff"} width={20} height={20}/>
+                                    <ArrowLeft color={"#2b7fff"} width={20} height={20} />
                                 </Button>
                             </div>
                         </div>

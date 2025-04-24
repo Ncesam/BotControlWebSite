@@ -68,6 +68,7 @@ async def fetch_price():
     logger.info(f"Начинаем обработку {len(items_list)} товаров")
 
     for item in items_list:
+        await asyncio.sleep(2)
         await fetch_price_for_item(item)
 
 

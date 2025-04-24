@@ -1,4 +1,4 @@
-from sqlalchemy import ForeignKey, String, ARRAY
+from sqlalchemy import ForeignKey, String, ARRAY, JSON
 from sqlalchemy.orm import Mapped, relationship, mapped_column
 
 from src.DataBase import Base
@@ -17,5 +17,7 @@ class Bot(Base):
     answers_type: Mapped[str] = mapped_column(default="storage")
     nicknames: Mapped[list[str]] = mapped_column(ARRAY(String), nullable=True)
     text: Mapped[str] = mapped_column(nullable=True)
+    commands: Mapped[list[dict]] = mapped_column(JSON, nullable=True)
+    ads_delay: Mapped[int] = mapped_column(nullable=True)
 
     user: Mapped["User"] = relationship(back_populates="bots")

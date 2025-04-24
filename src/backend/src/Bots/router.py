@@ -40,6 +40,9 @@ async def delete_bot(bot=Depends(BotsLogics.delete_bot)):
 async def stop_bot(bots=Depends(BotsLogics.stop_bots)):
     return {"status": status.HTTP_200_OK, "result": bots}
 
+@router.post("/commands")
+async def add_commands(bot_id=Depends(BotsLogics.add_command)):
+    return {"status": status.HTTP_200_OK, "result": bot_id}
 
 @router.put("")
 async def update_bot(

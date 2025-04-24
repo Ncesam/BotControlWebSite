@@ -22,12 +22,18 @@ class BaseBotForm(BaseModel):
     token: str
     group_name: str
 
+class Command(BaseModel):
+    id: int
+    regex: str
+    answer: str
+    name: str
+    enabled: bool
 
 class BotForm(BaseBotForm):
     answers_type: Optional[str] = None
     nicknames: Optional[str] = None
     text: Optional[str] = None
-
+    ads_delay: Optional[int] = None
 
 class BotUpdateForm(BotForm):
     id: int
